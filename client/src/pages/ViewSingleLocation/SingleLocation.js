@@ -4,8 +4,7 @@ import { useParams, useLocation } from "react-router";
 import axios from "axios";
 import Sidenav from "../../components/Sidenav";
 import AdminSideNav from "../../components/AdminSideNav";
-import AdminContext from "../../Context/AdminContext"
-
+import AdminContext from "../../Context/AdminContext";
 
 const SingleLocation = () => {
   const { admin, setAdmin } = useContext(AdminContext);
@@ -28,8 +27,11 @@ const SingleLocation = () => {
   const currentLocation = useLocation().pathname;
   return (
     <>
-      {currentLocation.includes('admin') ? <AdminSideNav admin={admin} /> : <Sidenav />}
-
+      {currentLocation.includes("admin") ? (
+        <AdminSideNav admin={admin} />
+      ) : (
+        <Sidenav />
+      )}
 
       <div className="container">
         <div className="row">
@@ -38,7 +40,7 @@ const SingleLocation = () => {
           </div>
           <div className="col s12">
             <p className="center-align">
-              Located in:{" "}
+              <strong>Located: </strong>
               {`${location.street}, ${location.city}, ${location.state}, ${location.zipcode}`}
             </p>
           </div>
@@ -49,10 +51,10 @@ const SingleLocation = () => {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>category</th>
-                  <th>addedBy</th>
-                  <th>date</th>
-                  <th>expiration</th>
+                  <th>Category</th>
+                  <th>Item Added By</th>
+                  <th>Date Added</th>
+                  <th>Expiration</th>
                 </tr>
               </thead>
 
